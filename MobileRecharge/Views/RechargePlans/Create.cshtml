@@ -1,0 +1,63 @@
+﻿@model MobileRecharge.Models.RechargePlans
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>RechargePlans</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="PlanName" class="control-label"></label>
+                <input asp-for="PlanName" class="form-control" />
+                <span asp-validation-for="PlanName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DataBenfits" class="control-label"></label>
+                <input asp-for="DataBenfits" class="form-control" />
+                <span asp-validation-for="DataBenfits" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CallBenifits" class="control-label"></label>
+                <input asp-for="CallBenifits" class="form-control" />
+                <span asp-validation-for="CallBenifits" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OtherBenifits" class="control-label"></label>
+                <input asp-for="OtherBenifits" class="form-control" />
+                <span asp-validation-for="OtherBenifits" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Validity" class="control-label"></label>
+                <input asp-for="Validity" class="form-control" />
+                <span asp-validation-for="Validity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PlanType" class="control-label"></label>
+                <select asp-for="PlanType" asp-items="Html.GetEnumSelectList<PlanType>()" class="form-control"></select>
+                <span asp-validation-for="PlanType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

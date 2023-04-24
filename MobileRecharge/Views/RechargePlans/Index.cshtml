@@ -1,0 +1,79 @@
+﻿@model IEnumerable<MobileRecharge.Models.RechargePlans>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PlanName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataBenfits)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CallBenifits)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OtherBenifits)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Validity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PlanType)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PlanName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataBenfits) GB
+                </td>
+                @if (item.CallBenifits == 0)
+                {
+                    <td>Unlimited</td>
+                }
+                @if (item.CallBenifits != 0)
+                {
+                <td>
+                    @Html.DisplayFor(modelItem => item.CallBenifits) 
+                </td>
+                }
+                <td>
+                    @Html.DisplayFor(modelItem => item.OtherBenifits)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Validity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PlanType)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
