@@ -30,9 +30,12 @@
                             @if (User.IsInRole("Admin"))
                             {
                                 <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="RechargePlans" asp-action="Index">Admin</a>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="rechargeplans" asp-action="index">admin</a>
                                 </li>
                             }
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="ContactForms" asp-action="index">Contact</a>
+                                </li>
                         }
                     </ul>
                 </div>
