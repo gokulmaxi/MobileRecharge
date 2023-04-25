@@ -27,6 +27,16 @@ namespace MobileRecharge.Controllers
                           Problem("Entity set 'MobileRechargeContext.RechargePlans'  is null.");
         }
 
+        // GET: RechargeReports
+        public async Task<IActionResult> Reports()
+        {
+            return _context.RechargeReport != null ?
+                        View(await _context.RechargeReport
+                        .Include(x=> x.Plan)
+                        .Include(x=> x.User)
+                        .ToListAsync()) :
+                        Problem("Entity set 'MobileRechargeContext.RechargeReport'  is null.");
+        }
         // GET: RechargePlans/Details/5
         public async Task<IActionResult> Details(int? id)
         {

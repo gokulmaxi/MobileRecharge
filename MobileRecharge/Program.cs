@@ -57,15 +57,15 @@ options.UseSqlServer(connectionString));
             {
                 var userManager = scope.ServiceProvider.GetRequiredService<UserManager<MobileRechargeUser>>();
                 string mail = "admin@presidio.com";
-                string pass = "Verystr0ngpass";
-                if(await userManager.FindByEmailAsync(mail) == null)
+                string pass = "Verystr0ngpass@";
+                if (await userManager.FindByEmailAsync(mail) == null)
                 {
                     Console.WriteLine("seeding admin user");
                     var user = new MobileRechargeUser();
                     user.Email = mail;
-                    user.UserName = "admin";
-                    userManager.CreateAsync(user, pass);
-                    //await userManager.AddToRoleAsync(user, "Admin");
+                    user.UserName = mail;
+                    await userManager.CreateAsync(user, pass);
+                    await userManager.AddToRoleAsync(user, "Admin");
 
                 }
             }

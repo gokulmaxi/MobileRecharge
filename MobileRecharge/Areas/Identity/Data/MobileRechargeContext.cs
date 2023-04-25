@@ -22,4 +22,6 @@ public class MobileRechargeContext : IdentityDbContext<MobileRechargeUser>
     }
 
     public DbSet<MobileRecharge.Models.RechargePlans>? RechargePlans { get; set; }
+
+    public DbSet<MobileRecharge.Models.RechargeReport>? RechargeReport { get; set; }
 }

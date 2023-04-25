@@ -1,0 +1,42 @@
+﻿@model IEnumerable<MobileRecharge.Models.RechargeReport>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Recharge history</h1>
+
+<p>
+    <a asp-action="Plans">Recharge</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.RechargedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Plan.PlanName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Plan.Price)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RechargedDate)
+            </td>
+            <th>
+                @Html.DisplayFor(modelItem => item.Plan.PlanName)
+            </th>
+            <th>
+                @Html.DisplayFor(modelItem => item.Plan.Price)
+            </th>
+        </tr>
+}
+    </tbody>
+</table>
